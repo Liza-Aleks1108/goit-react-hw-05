@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import MovieCard from "../MovieCard/MovieCard";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -15,7 +16,7 @@ const MovieList = () => {
 
   useEffect(() => {
     fetch(
-      "https://api.themoviedb.org/3/trending/movie/day?language=en-US'",
+      "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
       options,
     )
       .then((response) => response.json())
@@ -32,10 +33,11 @@ const MovieList = () => {
 
   return (
     <div>
-      <h2>Trending Movies Today</h2>
       <ul>
         {movies.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
+          <li key={movie.id}>
+            <MovieCard movie={movie} />
+          </li>
         ))}
       </ul>
     </div>
