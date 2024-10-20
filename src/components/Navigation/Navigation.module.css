@@ -1,0 +1,25 @@
+/* Стили для кнопок */
+.nav {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.navLink {
+  font-size: 20px;
+  padding: 24px 36px;
+  background-color: #ffffff;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.navLink.active {
+  background-color: #9d1231;
+}
