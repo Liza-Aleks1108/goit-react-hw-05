@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-// import css from "./MovieCard.module.css";
+import css from "./MovieCard.module.css";
 
 const defaults = {
   poster:
@@ -11,7 +11,7 @@ function MovieCard({ movie }) {
   const location = useLocation();
 
   return (
-    <div>
+    <div className={css.movieCard}>
       <img
         src={
           movie.poster_path
@@ -21,7 +21,11 @@ function MovieCard({ movie }) {
         alt={movie.title || defaults.title}
       />
       <div>
-        <Link to={`/movies/${movie.id}`} state={location}>
+        <Link
+          to={`/movies/${movie.id}`}
+          state={location}
+          className={css.movieCardTitle}
+        >
           {movie.title || defaults.title}
         </Link>
       </div>

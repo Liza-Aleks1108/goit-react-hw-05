@@ -15,16 +15,26 @@ const MovieList = () => {
   };
 
   useEffect(() => {
+    let isMounted = true;
     fetch(
       "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
       options,
     )
       .then((response) => response.json())
-      .then((data) => setMovies(data.results))
+      .then((data) => {
+        if (isMounted) {
+          setMovies(data.results);
+          //   console.log(data.results);
+        }
+      })
       .catch((err) => {
         console.error(err);
         setError("Failed to fetch movies");
       });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   if (error) {
