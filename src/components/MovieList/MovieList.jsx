@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MovieCard from "../MovieCard/MovieCard";
+import css from "./MovieList.module.css";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -43,9 +44,9 @@ const MovieList = () => {
 
   return (
     <div>
-      <ul>
+      <ul className={css.list}>
         {movies.map((movie) => (
-          <li key={movie.id}>
+          <li key={movie.id} className={css.item}>
             <MovieCard movie={movie} />
           </li>
         ))}

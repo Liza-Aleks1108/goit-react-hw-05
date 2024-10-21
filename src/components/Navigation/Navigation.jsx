@@ -24,10 +24,10 @@ function Navigation() {
           Movies
         </NavLink>
       </nav>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies" element={<MoviesPage />} />
-      </Routes>
+      </Routes> */}
     </header>
   );
 }
