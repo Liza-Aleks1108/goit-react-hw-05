@@ -9,13 +9,11 @@ function Web() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    // Функция для отрисовки одной секции паутины
     function drawWebInCorner(x, y, directionX, directionY) {
       const steps = 7;
       const spacing = 20;
       const lines = 12;
 
-      // Нарисуем круги, которые расходятся от угла
       for (let i = 1; i <= steps; i++) {
         ctx.beginPath();
         ctx.moveTo(x, y);
@@ -33,7 +31,6 @@ function Web() {
         ctx.stroke();
       }
 
-      // Нарисуем лучи, соединяющие круги
       for (let j = 0; j <= lines; j++) {
         ctx.beginPath();
         ctx.moveTo(x, y);
@@ -45,27 +42,17 @@ function Web() {
       }
     }
 
-    // Основная функция для рисования паутины по углам
     function drawSpiderWeb() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      ctx.strokeStyle = "#808080"; // Цвет паутины
+      ctx.strokeStyle = "#808080";
       ctx.lineWidth = 1.5;
-
-      // Паутина в верхнем левом углу
       drawWebInCorner(0, 0, 1, 1);
-
-      // Паутина в верхнем правом углу
       drawWebInCorner(canvas.width, 0, -1, 1);
-
-      // Паутина в нижнем левом углу
       drawWebInCorner(0, canvas.height, 1, -1);
-
-      // Паутина в нижнем правом углу
       drawWebInCorner(canvas.width, canvas.height, -1, -1);
     }
 
-    // Анимация для вращения паутины
     function animateWeb() {
       drawSpiderWeb();
       requestAnimationFrame(animateWeb);
