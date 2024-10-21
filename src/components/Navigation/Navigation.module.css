@@ -18,6 +18,10 @@
   text-decoration: none;
   transition: background-color 0.3s ease;
   display: inline-block;
+
+  font-family: "Playwrite GB S", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 .navLink.active {
