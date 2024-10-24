@@ -2,13 +2,14 @@ import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 // components
-import Navigation from "../Navigation/Navigation";
 import Web from "../Web/Web.jsx";
+import MovieCast from "../MovieCast/MovieCast.jsx";
 
 // pages
 import HomePage from "../../pages/HomePage/HomePage";
 import MoviesPage from "../../pages/MoviesPage/MoviesPage";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
+import MovieDetailsPage from "../../pages/MovieDetailsPage/MovieDetailsPage.jsx";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -86,6 +87,7 @@ function App() {
             />
           }
         />
+        <Route path="/movies/:movieId/*" element={<MovieDetailsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>

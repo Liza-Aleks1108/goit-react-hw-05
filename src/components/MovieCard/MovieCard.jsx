@@ -12,18 +12,20 @@ function MovieCard({ movie }) {
 
   return (
     <div className={css.movieCard}>
-      <img
-        src={
-          movie.poster_path
-            ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
-            : defaults.poster
-        }
-        alt={movie.title || defaults.title}
-      />
+      <Link to={`/movies/${movie.id}`} state={{ from: location.pathname }}>
+        <img
+          src={
+            movie.poster_path
+              ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+              : defaults.poster
+          }
+          alt={movie.title || defaults.title}
+        />
+      </Link>
       <div>
         <Link
           to={`/movies/${movie.id}`}
-          state={location}
+          state={{ from: location }}
           className={css.movieCardTitle}
         >
           {movie.title || defaults.title}
